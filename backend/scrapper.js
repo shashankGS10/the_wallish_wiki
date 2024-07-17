@@ -1,54 +1,65 @@
+const readline = require('readline');
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-const limitTextToWords = (text, limit) => {
-  return text.split(' ').slice(0, limit).join(' ');
-};
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const scrapeData = async (urlOrKeyword) => {
+async function fetchHTML(url) {
   try {
-    const response = await axios.get(urlOrKeyword);
-    const $ = cheerio.load(response.data);
-
-    // Select paragraph and heading tags for content
-    const contentTags = $('p, h1, h2, h3, h4, h5, h6');
-
-    if (!contentTags || !contentTags.length) {
-      throw new Error('No valid content found');
-    }
-
-    let scrapeData = '';
-    contentTags.each((i, elem) => {
-      const text = $(elem).text().trim();
-      if (text.length > 0) {
-        scrapeData += `${text} `;
-      }
-    });
-
-    return limitTextToWords(scrapeData, 5000); // Limit to 5000 words
+      const response = await axios.get(url);
+      return response.data;
   } catch (error) {
-    console.error('Error scraping data:', error);
-    throw error; // Propagate the error back to caller
+      throw Error(`Error fetching the URL: ${url} - ${error}`);
   }
-};
+}
 
-// Function to handle input from console
-const handleInput = async () => {
-  const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
+function extractData(html) {
+  const $ = cheerio.load(html);
+
+  // Extract title
+  const title = $('#firstHeading').text().trim();
+
+  // Extract first paragraph
+  let firstParagraph = '';
+  $('.mw-parser-output > p').each((index, element) => {
+      if (firstParagraph === '' && $(element).text().trim().length > 0) {
+          firstParagraph = $(element).text().trim();
+          return false; // Exit each loop
+      }
   });
 
-  readline.question('Enter a URL or keyword to scrape: ', async (input) => {
-    try {
-      const scrapedText = await scrapeData(input.trim());
-      console.log('\nScrapped data (limited to 5000 words):\n', scrapedText);
-    } catch (error) {
-      console.error('Error occurred during scraping:', error);
-    } finally {
-      readline.close();
-    }
+  // Extract headings
+  const headings = [];
+  $('.mw-parser-output > h2 > span.mw-headline').each((index, element) => {
+      headings.push($(element).text().trim());
   });
-};
 
-handleInput();
+  return {
+      title,
+      firstParagraph,
+      headings
+  };
+}
+
+async function scrapeWikipedia(keyword) {
+  const url = `https://en.wikipedia.org/wiki/${encodeURIComponent(keyword)}`;
+
+  try {
+      const html = await fetchHTML(url);
+      const data = extractData(html);
+      console.log('Title:', data.title);
+      console.log('First Paragraph:', data.firstParagraph);
+      console.log('Headings:', data.headings);
+      console.log('Reference Link:', url);
+  } catch (error) {
+      console.error('Error scraping Wikipedia:', error.message);
+  }
+}
+
+rl.question('Enter a keyword to search on Wikipedia: ', (answer) => {
+  scrapeWikipedia(answer);
+  rl.close();
+});
