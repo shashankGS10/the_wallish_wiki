@@ -12,10 +12,16 @@ const AppNavigator: React.FC = () => {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }}  />
-      <Stack.Screen name="StoriesScreen" component={StoriesScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Stories" component={StoriesScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default AppNavigator;
+
+// pixel ganda dikhra he -- Image compression k sath
+//Timer progress bar
+//Compare real wala
+// New and close circle for story new feed
+//

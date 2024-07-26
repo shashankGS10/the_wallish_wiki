@@ -1,4 +1,3 @@
-// app/data/dummyStories.ts
 import { Story } from '../types/story';
 
 const dummyStories: Story[] = [

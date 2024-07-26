@@ -14,7 +14,7 @@ const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
 
   const handleSelectStory = (story: Story) => {
-    navigation.navigate('StoriesScreen', { selectedStory: story });
+    navigation.navigate('Stories', { selectedStory: story });
   };
 
   return (

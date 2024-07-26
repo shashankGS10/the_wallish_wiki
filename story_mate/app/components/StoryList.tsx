@@ -15,9 +15,13 @@ const StoryList: React.FC<StoryListProps> = ({ stories, onSelectStory }) => {
         horizontal
         data={stories}
         renderItem={({ item }) => (
+            
           <TouchableOpacity onPress={() => onSelectStory(item)}>
+          <View style={styles.colorCircle}>
             <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
+            </View>
           </TouchableOpacity>
+          
         )}
         keyExtractor={(item) => item.id}
         showsHorizontalScrollIndicator={false}
@@ -31,11 +35,21 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     backgroundColor: 'white',
   },
+  colorCircle:{
+    width:90,
+    height: 90,
+    marginHorizontal: 5,
+    borderRadius: 50,
+    borderWidth: 5,
+    borderColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   thumbnail: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginHorizontal: 8,
+    width: 75,
+    height: 75,
+    borderRadius: 50,
   },
 });
 
