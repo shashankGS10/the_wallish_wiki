@@ -29,7 +29,7 @@ const StoriesScreen: React.FC<StoriesScreenProps> = ({ route, navigation }) => {
   };
 
   const handleExitFullScreen = () => {
-    navigation.navigate('HomeScreen');
+    navigation.navigate('Home');
   };
 
   return (
@@ -39,7 +39,6 @@ const StoriesScreen: React.FC<StoriesScreenProps> = ({ route, navigation }) => {
         onNext={handleNextStory}
         onPrevious={handlePreviousStory}
         onExit={handleExitFullScreen}
-        duration={5000}
       />
     </View>
   );

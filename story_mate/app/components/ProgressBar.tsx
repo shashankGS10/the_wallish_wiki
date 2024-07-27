@@ -5,7 +5,7 @@ interface ProgressBarProps {
   duration: number;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ duration }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ duration = 5000 }) => {
   const progress = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

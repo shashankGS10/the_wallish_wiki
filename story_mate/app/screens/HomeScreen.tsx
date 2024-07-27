@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, FlatList, Platform, StatusBar, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Story } from '../types/story';
-import StoryComponent from '../components/StoryComponent';
 import StoryList from '../components/StoryList';
 import Post from '../components/Post';
 import dummyStories from '../data/dummyStories'; // Ensure this import is correct

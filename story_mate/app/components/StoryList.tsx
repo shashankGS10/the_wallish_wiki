@@ -1,6 +1,7 @@
 // app/components/StoryList.tsx
 import React from 'react';
 import { View, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Story } from '../types/story';
 
 interface StoryListProps {
@@ -17,9 +18,13 @@ const StoryList: React.FC<StoryListProps> = ({ stories, onSelectStory }) => {
         renderItem={({ item }) => (
             
           <TouchableOpacity onPress={() => onSelectStory(item)}>
-          <View style={styles.colorCircle}>
+       <LinearGradient colors={['#F9CE34', '#EE2A7B', '#6228D7']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+       style={styles.colorCircle}>
             <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
-            </View>
+            
+            </LinearGradient>
           </TouchableOpacity>
           
         )}
@@ -36,20 +41,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   colorCircle:{
-    width:90,
-    height: 90,
+    width:85,
+    height: 85,
     marginHorizontal: 5,
     borderRadius: 50,
-    borderWidth: 5,
-    borderColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   thumbnail: {
-    width: 75,
-    height: 75,
+    width: 80,
+    height: 80,
     borderRadius: 50,
+    borderWidth: 2,
+    borderColor: 'white',
   },
 });
 
