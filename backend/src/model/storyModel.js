@@ -1,14 +1,16 @@
-const mongoose = require('mongoose');
-
-const storySchema = new mongoose.Schema({
-    id: { type: String, required: true },
-    username: { type: String, required: true },
-    avatar: { type: String, required: true },
-    image: { type: String, required: true },
-    thumbnail: { type: String, required: true },
-    timestamp: { type: String, required: true }
+const { Pool } = require('pg');
+const pool = new Pool({
+    connectionString: process.env.POSTGRES_DATABASE,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
-const Story = mongoose.model('Story', storySchema);
+const getAllStories = async () => {
+    const result = await pool.query('SELECT * FROM stories');
+    return result.rows;
+};
 
-module.exports = Story;
+module.exports = {
+    getAllStories
+};

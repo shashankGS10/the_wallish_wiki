@@ -22,7 +22,7 @@ const StoryList: React.FC<StoryListProps> = ({ stories, onSelectStory }) => {
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
        style={styles.colorCircle}>
-            <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
+            <Image source={{ uri: item.avatar }} style={styles.thumbnail} />
             
             </LinearGradient>
           </TouchableOpacity>

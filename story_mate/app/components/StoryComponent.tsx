@@ -47,14 +47,6 @@ const StoryComponent: React.FC<StoryComponentProps> = ({ story, onNext, onPrevio
         };
     }, [story, handleNext, handlePrevious]);
 
-    useEffect(() => {
-        const handleExit = () => {
-            navigation.navigate('Home');
-        };
-
-        return handleExit;
-    }, [navigation]);
-
     const progressWidth = progress.interpolate({
         inputRange: [0, 1],
         outputRange: ['0%', '100%'],

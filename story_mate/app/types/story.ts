@@ -4,6 +4,5 @@ export interface Story {
   username: string;
   avatar: string;
   image: string;
-  thumbnail: string;
   timestamp: string;
 }
