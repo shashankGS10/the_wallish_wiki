@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const storyRoute = require('./src/routes/storyRoute');
+const cors = require('cors');
+app.use(cors());
 
 dotenv.config();
 
