@@ -1,13 +1,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const storyRoutes = require('./src/routes/storyRoute');
+const storyRoute = require('./src/routes/storyRoute');
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-app.use('/stories', storyRoutes);
+app.use('/stories', storyRoute);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

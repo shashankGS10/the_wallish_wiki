@@ -1,40 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const { getAllStories, getStoryById, getStoryImage } = require('../model/storyModel');
+const { Pool } = require('pg');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const pool = new Pool({
+    connectionString: process.env.POSTGRES_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 
 router.get('/', async (req, res) => {
-  try {
-    const stories = await getAllStories();
-    res.json(stories);
-  } catch (err) {
-    res.status(500).send('Server error');
-  }
-});
-
-router.get('/:id', async (req, res) => {
-  try {
-    const story = await getStoryById(req.params.id);
-    if (story) {
-      res.json(story);
-    } else {
-      res.status(404).json({ message: 'Story not found' });
+    try {
+        const result = await pool.query('SELECT * FROM stories');
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
     }
-  } catch (err) {
-    res.status(500).send('Server error');
-  }
-});
-
-router.get('/:id/image', async (req, res) => {
-  try {
-    const imageURL = await getStoryImage(req.params.id);
-    if (imageURL) {
-      res.redirect(imageURL); 
-    } else {
-      res.status(404).json({ message: 'Story image not found' });
-    }
-  } catch (err) {
-    res.status(500).send('Server error');
-  }
 });
 
 module.exports = router;
