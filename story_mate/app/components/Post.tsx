@@ -10,6 +10,9 @@ const Post: React.FC<PostProps> = ({ content }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.content}>{content}</Text>
+      <Text style={styles.content}>Write Test cases</Text>
+      <Text style={styles.content}>Update readme.md</Text>
+      <Text style={styles.content}>Share APK</Text>
     </View>
   );
 };
