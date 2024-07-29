@@ -5,12 +5,20 @@ import { useNavigation } from '@react-navigation/native';
 import { Story } from '../types/story';
 import StoryList from '../components/StoryList';
 import Post from '../components/Post';
-import dummyStories from '../data/dummyStories'; // Ensure this import is correct
+import fetchStories from '../utils/api';
+import LoadingIndicator from '../components/LoadingIndicator'; // Import LoadingIndicator
 
 const HomeScreen: React.FC = () => {
-  const [stories, setStories] = useState<Story[]>(dummyStories);
-  const [currentStoryIndex, setCurrentStoryIndex] = useState<number | null>(null);
+  const [stories, setStories] = useState<Story[]>([]);
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedStories = await fetchStories();
+      setStories(fetchedStories);
+    };
+    fetchData();
+  }, []);
 
   const handleSelectStory = (story: Story) => {
     navigation.navigate('Stories', { selectedStory: story });
@@ -18,12 +26,12 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.header}>
+      <View style={styles.header}>
         <Text style={styles.headerText}>StoryMate</Text>
       </View>
       {stories.length === 0 ? (
-        <View style={styles.header}>
-          <Text style={styles.headerText}>StoryMate</Text>
+        <View style={styles.loadingContainer}>
+          <LoadingIndicator />
         </View>
       ) : (
         <>
@@ -54,6 +62,12 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
   },
 });
 
