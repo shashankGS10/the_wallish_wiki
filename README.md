@@ -19,7 +19,7 @@ This repository contains the codebase for "The Wallish Wiki," a feature represen
 "The Wallish Wiki" is a mobile application that replicates the Stories feature of Instagram. The app is built with a React Native frontend, a Node.js Express backend, and a PostgreSQL database. The backend is deployed on an EC2 instance in AWS, and the database is hosted on Vercel. Additionally, a mock CDN has been created to serve media files, which are manually compressed for optimized delivery.
 
 ## Folder Structure
-
+```
 the_wallish_story_kp/
 ┣ backend/
 ┃ ┣ src/
@@ -76,6 +76,7 @@ the_wallish_story_kp/
 ┣ LICENSE
 ┗ README.md
 
+```
 ## Features
 
 - Display and view stories similar to Instagram Stories.
