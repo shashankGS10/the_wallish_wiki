@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList, Platform, StatusBar, Text } from 'react-nat
 import { useNavigation } from '@react-navigation/native';
 import { Story } from '../types/story';
 import StoryList from '../components/StoryList';
-import Post from '../components/Post';
+import Post from '../components/BlankPost';
 import fetchStories from '../utils/api';
 import LoadingIndicator from '../components/LoadingIndicator'; // Import LoadingIndicator
 
@@ -31,7 +31,7 @@ const HomeScreen: React.FC = () => {
       </View>
       {stories.length === 0 ? (
         <View style={styles.loadingContainer}>
-          <LoadingIndicator />
+          <LoadingIndicator testID="loading-indicator"/>
         </View>
       ) : (
         <>

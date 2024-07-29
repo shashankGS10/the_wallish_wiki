@@ -54,7 +54,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({ story, onNext, onPrevio
 
     return (
         <View style={styles.container}>
-            <Image source={{ uri: story.image }} style={styles.image} />
+            <Image source={{ uri: story.image }} style={styles.image} testID="story-image"/>
             <View style={styles.header}>
                 <View style={styles.progressContainer}>
                     <Animated.View style={[styles.progressBar, { width: progressWidth }]} />
@@ -70,7 +70,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({ story, onNext, onPrevio
                             <Text style={styles.timestamp}>{story.timestamp}</Text>
                         </View>
                     </View>
-                    <TouchableOpacity onPress={onExit} style={styles.closeButton}>
+                    <TouchableOpacity onPress={onExit} style={styles.closeButton} testID="close-button">
                         <Ionicons name="close" size={24} color="white" />
                     </TouchableOpacity>
                 </View>

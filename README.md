@@ -40,7 +40,7 @@ the_wallish_story_kp/
 ┃ ┣ app/
 ┃ ┃ ┣ components/
 ┃ ┃ ┃ ┣ LoadingIndicator.tsx
-┃ ┃ ┃ ┣ Post.tsx
+┃ ┃ ┃ ┣ BlankPost.tsx
 ┃ ┃ ┃ ┣ ProgressBar.tsx
 ┃ ┃ ┃ ┣ StoryComponent.tsx
 ┃ ┃ ┃ ┗ StoryList.tsx
@@ -60,10 +60,6 @@ the_wallish_story_kp/
 ┃ ┃ ┗ utils/
 ┃ ┃   ┗ api.ts
 ┃ ┣ assets/
-┃ ┃ ┣ adaptive-icon.png
-┃ ┃ ┣ favicon.png
-┃ ┃ ┣ icon.png
-┃ ┃ ┗ splash.png
 ┃ ┣ .gitignore
 ┃ ┣ App.tsx
 ┃ ┣ app.json

@@ -22,7 +22,7 @@ const LoadingIndicator: React.FC = () => {
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.spinner, { transform: [{ rotate: spin }] }]}>
-       <View style={styles.gradientBorder}>          
+       <View style={styles.gradientBorder}  testID="loading-indicator" >          
         </View>
       </Animated.View>
     </View>

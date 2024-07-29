@@ -1,4 +1,3 @@
-// app/components/Post.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -11,7 +10,6 @@ const Post: React.FC<PostProps> = ({ content }) => {
     <View style={styles.container}>
       <Text style={styles.content}>{content}</Text>
       <Text style={styles.content}>Write Test cases</Text>
-      <Text style={styles.content}>Update readme.md</Text>
       <Text style={styles.content}>Share APK</Text>
     </View>
   );
