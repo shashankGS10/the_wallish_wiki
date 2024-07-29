@@ -20,63 +20,61 @@ This repository contains the codebase for "The Wallish Wiki," a feature represen
 
 ## Folder Structure
 
-# the_wallish_story_kp
-
-* [backend/](./the_wallish_story_kp/backend)
-  * [src/](./the_wallish_story_kp/backend/src)
-    * [db/](./the_wallish_story_kp/backend/src/db)
-      * [db_setup.js](./the_wallish_story_kp/backend/src/db/db_setup.js)
-      * [stories.sql](./the_wallish_story_kp/backend/src/db/stories.sql)
-    * [model/](./the_wallish_story_kp/backend/src/model)
-      * [storyModel.js](./the_wallish_story_kp/backend/src/model/storyModel.js)
-    * [routes/](./the_wallish_story_kp/backend/src/routes)
-      * [storyRoute.js](./the_wallish_story_kp/backend/src/routes/storyRoute.js)
-  * [.env](./the_wallish_story_kp/backend/.env)
-  * [index.js](./the_wallish_story_kp/backend/index.js)
-  * [package-lock.json](./the_wallish_story_kp/backend/package-lock.json)
-  * [package.json](./the_wallish_story_kp/backend/package.json)
-  * [vercel.json](./the_wallish_story_kp/backend/vercel.json)
-  * [yarn.lock](./the_wallish_story_kp/backend/yarn.lock)
-* [story_mate/](./the_wallish_story_kp/story_mate)
-  * [app/](./the_wallish_story_kp/story_mate/app)
-    * [components/](./the_wallish_story_kp/story_mate/app/components)
-      * [LoadingIndicator.tsx](./the_wallish_story_kp/story_mate/app/components/LoadingIndicator.tsx)
-      * [Post.tsx](./the_wallish_story_kp/story_mate/app/components/Post.tsx)
-      * [ProgressBar.tsx](./the_wallish_story_kp/story_mate/app/components/ProgressBar.tsx)
-      * [StoryComponent.tsx](./the_wallish_story_kp/story_mate/app/components/StoryComponent.tsx)
-      * [StoryList.tsx](./the_wallish_story_kp/story_mate/app/components/StoryList.tsx)
-    * [data/](./the_wallish_story_kp/story_mate/app/data)
-      * [dummyStories.ts](./the_wallish_story_kp/story_mate/app/data/dummyStories.ts)
-    * [navigation/](./the_wallish_story_kp/story_mate/app/navigation)
-      * [AppNavigator.tsx](./the_wallish_story_kp/story_mate/app/navigation/AppNavigator.tsx)
-    * [screens/](./the_wallish_story_kp/story_mate/app/screens)
-      * [HomeScreen.tsx](./the_wallish_story_kp/story_mate/app/screens/HomeScreen.tsx)
-      * [StoriesScreen.tsx](./the_wallish_story_kp/story_mate/app/screens/StoriesScreen.tsx)
-    * [services/](./the_wallish_story_kp/story_mate/app/services)
-      * [api.ts](./the_wallish_story_kp/story_mate/app/services/api.ts)
-    * [test/](./the_wallish_story_kp/story_mate/app/test)
-      * [testFetch.js](./the_wallish_story_kp/story_mate/app/test/testFetch.js)
-    * [types/](./the_wallish_story_kp/story_mate/app/types)
-      * [story.ts](./the_wallish_story_kp/story_mate/app/types/story.ts)
-    * [utils/](./the_wallish_story_kp/story_mate/app/utils)
-      * [api.ts](./the_wallish_story_kp/story_mate/app/utils/api.ts)
-  * [assets/](./the_wallish_story_kp/story_mate/assets)
-    * [adaptive-icon.png](./the_wallish_story_kp/story_mate/assets/adaptive-icon.png)
-    * [favicon.png](./the_wallish_story_kp/story_mate/assets/favicon.png)
-    * [icon.png](./the_wallish_story_kp/story_mate/assets/icon.png)
-    * [splash.png](./the_wallish_story_kp/story_mate/assets/splash.png)
-  * [.gitignore](./the_wallish_story_kp/story_mate/.gitignore)
-  * [App.tsx](./the_wallish_story_kp/story_mate/App.tsx)
-  * [app.json](./the_wallish_story_kp/story_mate/app.json)
-  * [babel.config.js](./the_wallish_story_kp/story_mate/babel.config.js)
-  * [package-lock.json](./the_wallish_story_kp/story_mate/package-lock.json)
-  * [package.json](./the_wallish_story_kp/story_mate/package.json)
-  * [tsconfig.json](./the_wallish_story_kp/story_mate/tsconfig.json)
-  * [yarn.lock](./the_wallish_story_kp/story_mate/yarn.lock)
-* [.gitignore](./the_wallish_story_kp/.gitignore)
-* [LICENSE](./the_wallish_story_kp/LICENSE)
-* [README.md](./the_wallish_story_kp/README.md)
-
+the_wallish_story_kp/
+┣ backend/
+┃ ┣ src/
+┃ ┃ ┣ db/
+┃ ┃ ┃ ┣ db_setup.js
+┃ ┃ ┃ ┗ stories.sql
+┃ ┃ ┣ model/
+┃ ┃ ┃ ┗ storyModel.js
+┃ ┃ ┗ routes/
+┃ ┃   ┗ storyRoute.js
+┃ ┣ .env
+┃ ┣ index.js
+┃ ┣ package-lock.json
+┃ ┣ package.json
+┃ ┣ vercel.json
+┃ ┗ yarn.lock
+┣ story_mate/
+┃ ┣ app/
+┃ ┃ ┣ components/
+┃ ┃ ┃ ┣ LoadingIndicator.tsx
+┃ ┃ ┃ ┣ Post.tsx
+┃ ┃ ┃ ┣ ProgressBar.tsx
+┃ ┃ ┃ ┣ StoryComponent.tsx
+┃ ┃ ┃ ┗ StoryList.tsx
+┃ ┃ ┣ data/
+┃ ┃ ┃ ┗ dummyStories.ts
+┃ ┃ ┣ navigation/
+┃ ┃ ┃ ┗ AppNavigator.tsx
+┃ ┃ ┣ screens/
+┃ ┃ ┃ ┣ HomeScreen.tsx
+┃ ┃ ┃ ┗ StoriesScreen.tsx
+┃ ┃ ┣ services/
+┃ ┃ ┃ ┗ api.ts
+┃ ┃ ┣ test/
+┃ ┃ ┃ ┗ testFetch.js
+┃ ┃ ┣ types/
+┃ ┃ ┃ ┗ story.ts
+┃ ┃ ┗ utils/
+┃ ┃   ┗ api.ts
+┃ ┣ assets/
+┃ ┃ ┣ adaptive-icon.png
+┃ ┃ ┣ favicon.png
+┃ ┃ ┣ icon.png
+┃ ┃ ┗ splash.png
+┃ ┣ .gitignore
+┃ ┣ App.tsx
+┃ ┣ app.json
+┃ ┣ babel.config.js
+┃ ┣ package-lock.json
+┃ ┣ package.json
+┃ ┣ tsconfig.json
+┃ ┗ yarn.lock
+┣ .gitignore
+┣ LICENSE
+┗ README.md
 
 ## Features
 
